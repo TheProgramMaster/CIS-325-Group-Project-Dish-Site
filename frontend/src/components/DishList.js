@@ -1,41 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import DishCard from './DishCard';
 
 const DishList = () => {
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
-    // Call the API to get all dishes and their ingredients
-    // Replace the function below with the actual API call
-    const fetchDishes = async () => {
-      const mockData = [
-        {
-          name: 'Soup #1',
-          image: 'https://th.bing.com/th/id/OIP.QDGp8bFUaQloSl7hFZypfAHaFP?pid=ImgDet&rs=1',
-          type: 'Vegetable Soup',
-          ingredients: ['Carrots', 'Potatoes', 'Celery', 'Onion', 'Garlic', 'Vegetable Broth'],
-        },
-        // Add more mock data here
-      ];
-
-      setDishes(mockData);
-    };
-
     fetchDishes();
   }, []);
 
+  const fetchDishes = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/dishes');
+      const data = await response.json();
+      setDishes(data);
+    } catch (error) {
+      console.error('Error fetching dishes:', error);
+    }
+  };
+
   return (
-    <div className="container">
-      <h1>All Dishes</h1>
-      <div className="row">
-        {dishes.map((dish, index) => (
-          <div className="col-md-4" key={index}>
-            <DishCard dish={dish} />
-          </div>
+    <div>
+      <h2>Dishes</h2>
+      <ul>
+        {dishes.map((dish) => (
+          <li key={dish._id}>
+            <h3>{dish.name}</h3>
+            <p>Type: {dish.type}</p>
+            <p>Ingredients: {dish.ingredients.join(', ')}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
-}
+};
 
 export default DishList;
