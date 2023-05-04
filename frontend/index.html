@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dish Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Dish Management</h1>
+
+  <!-- Add Dish Form -->
+  <section>
+    <h2>Add Dish</h2>
+    <form id="add-dish-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="image">Image URL:</label>
+      <input type="text" id="image" name="image" required>
+      <br>
+      <label for="type">Type:</label>
+      <select id="type" name="type" required>
+        <option value="soup">Soup</option>
+        <option value="appetizer">Appetizer</option>
+        <option value="entree">Entree</option>
+      </select>
+      <br>
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" id="ingredients" name="ingredients" required>
+      <br>
+      <button type="submit">Add Dish</button>
+    </form>
+  </section>
+
+  <!-- Update Dish Form -->
+  <section>
+    <h2>Update Dish</h2>
+    <form id="update-dish-form">
+      <label for="update-id">ID:</label>
+      <input type="text" id="update-id" name="update-id" required>
+      <br>
+      <label for="update-name">Name:</label>
+      <input type="text" id="update-name" name="update-name">
+      <br>
+      <label for="update-image">Image URL:</label>
+      <input type="text" id="update-image" name="update-image">
+      <br>
+      <label for="update-type">Type:</label>
+      <select id="update-type" name="update-type">
+        <option value="soup">Soup</option>
+        <option value="appetizer">Appetizer</option>
+        <option value="entree">Entree</option>
+      </select>
+      <br>
+      <label for="update-ingredients">Ingredients:</label>
+      <input type="text" id="update-ingredients" name="update-ingredients">
+      <br>
+      <button type="submit">Update Dish</button>
+    </form>
+  </section>
+
+  <!-- Search Dishes -->
+  <section>
+    <h2>Search Dishes</h2>
+    <form id="search-dishes-form">
+      <label for="search-type">Type:</label>
+      <select id="search-type" name="search-type">
+        <option value="">Any</option>
+        <option value="soup">Soup</option>
+        <option value="appetizer">Appetizer</option>
+        <option value="entree">Entree</option>
+      </select>
+      <br>
+      <label for="search-ingredient">Ingredient:</label>
+      <input type="text" id="search-ingredient" name="search-ingredient">
+      <br>
+      <label for="search-name">Name:</label>
+      <input type="text" id="search-name" name="search-name">
+      <br>
+    <button type="submit">Search</button>
+    </form>
+</section>
+<!-- Display Dishes -->
+<section>
+  <h2>Dishes</h2>
+  <table id="dishes-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Type</th>
+        <th>Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dishes will be dynamically added here -->
+    </tbody>
+  </table>
+</section>
+<script src="js/main.js"></script>
+</body>
+</html>
